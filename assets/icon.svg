@@ -1,0 +1,150 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="512"
+    height="512"
+    viewBox="0 0 512 512"
+>
+    <!-- =========================
+         Fond beige arrondi
+         ========================= -->
+    <rect
+        x="16"
+        y="16"
+        width="480"
+        height="480"
+        rx="90"
+        fill="#F4EFE4"
+    />
+
+    <!-- =========================
+         Document
+         ========================= -->
+
+    <!-- Corps blanc cassé du document -->
+    <path
+        d="
+            M 135 105
+            Q 135 85 155 85
+            H 320
+            L 390 155
+            V 365
+            Q 390 385 370 385
+            H 155
+            Q 135 385 135 365
+            Z
+        "
+        fill="#FCFAF5"
+        stroke="#5D7A56"
+        stroke-width="14"
+        stroke-linejoin="round"
+    />
+
+    <!-- Coin plié -->
+    <path
+        d="
+            M 320 85
+            V 135
+            Q 320 155 340 155
+            H 390
+            Z
+        "
+        fill="#D8DDC9"
+        stroke="#5D7A56"
+        stroke-width="14"
+        stroke-linejoin="round"
+    />
+
+    <!-- =========================
+         Symbole PDF stylisé
+         ========================= -->
+
+    <path
+        d="
+            M 195 225
+            C 215 205, 235 180, 240 145
+            C 242 125, 225 125, 225 145
+            C 225 180, 250 215, 285 225
+            C 310 232, 315 215, 295 210
+            C 260 202, 220 210, 190 235
+            C 170 252, 175 265, 190 255
+            C 205 245, 220 225, 230 205
+        "
+        fill="none"
+        stroke="#B57E48"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <!-- =========================
+         Lignes de texte décoratives
+         ========================= -->
+
+    <line
+        x1="180"
+        y1="280"
+        x2="275"
+        y2="280"
+        stroke="#7C9276"
+        stroke-width="9"
+        stroke-linecap="round"
+    />
+
+    <line
+        x1="180"
+        y1="305"
+        x2="245"
+        y2="305"
+        stroke="#7C9276"
+        stroke-width="9"
+        stroke-linecap="round"
+    />
+
+    <!-- =========================
+         Symbole de compression
+         ========================= -->
+
+    <!-- Ligne centrale -->
+    <line
+        x1="300"
+        y1="280"
+        x2="300"
+        y2="365"
+        stroke="#5D7A56"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-dasharray="10 12"
+    />
+
+    <!-- Flèche venant de gauche -->
+    <path
+        d="
+            M 225 325
+            H 275
+            M 255 305
+            L 275 325
+            L 255 345
+        "
+        fill="none"
+        stroke="#B57E48"
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <!-- Flèche venant de droite -->
+    <path
+        d="
+            M 375 325
+            H 325
+            M 345 305
+            L 325 325
+            L 345 345
+        "
+        fill="none"
+        stroke="#B57E48"
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+</svg>

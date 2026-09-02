@@ -1,0 +1,24 @@
+[package]
+name = "picoshrink"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "A lightweight desktop application for compressing PDF files with Ghostscript"
+
+[dependencies]
+eframe = "0.36.1"
+image = "0.25.10"
+rfd = "0.17.2"
+
+
+[package.metadata.packager]
+product-name = "PicoShrink"
+identifier = "com.picoshrink.app"
+category = "Utility"
+
+before-packaging-command = "cargo build --release"
+
+icons = [
+    "assets/icon-256.png",
+    "assets/icon.ico",
+]
