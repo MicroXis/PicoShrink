@@ -1,12 +1,12 @@
-name: Build PicoShrink
+name: Release PicoShrink
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
 
 jobs:
   linux:
@@ -24,7 +24,7 @@ jobs:
       - name: Package
         run: cargo packager --release --formats appimage,deb
 
-      - name: Upload packages
+      - name: Upload Linux packages
         uses: actions/upload-artifact@v4
         with:
           name: picoshrink-linux
@@ -47,7 +47,7 @@ jobs:
       - name: Package
         run: cargo packager --release --formats nsis
 
-      - name: Upload packages
+      - name: Upload Windows package
         uses: actions/upload-artifact@v4
         with:
           name: picoshrink-windows
@@ -71,12 +71,16 @@ jobs:
 
           cp assets/icon-16.png   icon.iconset/icon_16x16.png
           cp assets/icon-32.png   icon.iconset/icon_16x16@2x.png
+
           cp assets/icon-32.png   icon.iconset/icon_32x32.png
           cp assets/icon-64.png   icon.iconset/icon_32x32@2x.png
+
           cp assets/icon-128.png  icon.iconset/icon_128x128.png
           cp assets/icon-256.png  icon.iconset/icon_128x128@2x.png
+
           cp assets/icon-256.png  icon.iconset/icon_256x256.png
           cp assets/icon-512.png  icon.iconset/icon_256x256@2x.png
+
           cp assets/icon-512.png  icon.iconset/icon_512x512.png
           cp assets/icon-1024.png icon.iconset/icon_512x512@2x.png
 
@@ -85,8 +89,38 @@ jobs:
       - name: Package
         run: cargo packager --release --formats dmg
 
-      - name: Upload packages
+      - name: Upload macOS package
         uses: actions/upload-artifact@v4
         with:
           name: picoshrink-macos
           path: target/release/*.dmg
+
+  release:
+    needs:
+      - linux
+      - windows
+      - macos
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: List release files
+        run: ls -lah dist
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            dist/* \
+            --verify-tag \
+            --generate-notes \
+            --title "PicoShrink ${{ github.ref_name }}"
