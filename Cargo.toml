@@ -10,10 +10,9 @@ eframe = "0.36.1"
 image = "0.25.10"
 rfd = "0.17.2"
 
-
 [package.metadata.packager]
 product-name = "PicoShrink"
-identifier = "com.picoshrink.app"
+identifier = "io.github.microxis.picoshrink"
 category = "Utility"
 
 before-packaging-command = "cargo build --release"
