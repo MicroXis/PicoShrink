@@ -11,10 +11,11 @@ pub const SECTION_SPACING: f32 = 20.0;
 pub const BACKGROUND: egui::Color32 = egui::Color32::from_rgb(244, 239, 228);
 
 pub const CARD_BACKGROUND: egui::Color32 = egui::Color32::from_rgb(252, 250, 245);
+pub const CARD_SELECTED: egui::Color32 = egui::Color32::from_rgb(238, 242, 234);
 
 pub const TEXT_PRIMARY: egui::Color32 = egui::Color32::from_rgb(54, 52, 46);
 
-pub const TEXT_SECONDARY: egui::Color32 = egui::Color32::from_rgb(112, 106, 94);
+pub const TEXT_SECONDARY: egui::Color32 = egui::Color32::from_rgb(92, 88, 79);
 
 pub const BORDER: egui::Color32 = egui::Color32::from_rgb(162, 181, 153);
 
@@ -23,6 +24,13 @@ pub const ACCENT: egui::Color32 = egui::Color32::from_rgb(93, 122, 86);
 pub const ACCENT_HOVER: egui::Color32 = egui::Color32::from_rgb(79, 107, 73);
 
 pub const ACCENT_WARM: egui::Color32 = egui::Color32::from_rgb(181, 126, 72);
+
+pub const FONT_XS: f32 = 14.0;
+pub const FONT_SM: f32 = 15.0;
+pub const FONT_MD: f32 = 16.0;
+pub const FONT_LG: f32 = 18.0;
+pub const FONT_XL: f32 = 20.0;
+pub const FONT_XXL: f32 = 28.0;
 
 pub fn configure(ctx: &egui::Context) {
     // On ne dépend pas du thème sombre du système.
