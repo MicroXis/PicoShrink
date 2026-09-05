@@ -9,6 +9,7 @@ pub enum CompressionLevel {
 #[derive(Debug)]
 pub struct CompressionResult {
     pub input: PathBuf,
+    #[expect(dead_code, reason = "Will be used to open the compressed PDF")]
     pub output: PathBuf,
     pub input_size: u64,
     pub output_size: u64,
