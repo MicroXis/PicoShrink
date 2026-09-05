@@ -21,15 +21,16 @@ pub const BORDER: egui::Color32 = egui::Color32::from_rgb(162, 181, 153);
 
 pub const ACCENT: egui::Color32 = egui::Color32::from_rgb(93, 122, 86);
 
-pub const ACCENT_HOVER: egui::Color32 = egui::Color32::from_rgb(79, 107, 73);
-
 pub const ACCENT_WARM: egui::Color32 = egui::Color32::from_rgb(181, 126, 72);
 
+#[expect(dead_code, reason = "Reserved for the UI typography scale")]
 pub const FONT_XS: f32 = 14.0;
 pub const FONT_SM: f32 = 15.0;
 pub const FONT_MD: f32 = 16.0;
 pub const FONT_LG: f32 = 18.0;
+#[expect(dead_code, reason = "Reserved for the UI typography scale")]
 pub const FONT_XL: f32 = 20.0;
+#[expect(dead_code, reason = "Reserved for the UI typography scale")]
 pub const FONT_XXL: f32 = 28.0;
 
 pub fn configure(ctx: &egui::Context) {

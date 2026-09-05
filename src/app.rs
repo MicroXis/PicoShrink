@@ -147,7 +147,7 @@ impl PdfCompressorApp {
 
     fn show_single_result(&self, ui: &mut egui::Ui, result: &CompressionResult) {
         let reduction = result.reduction_percent();
-        let saved = result.input_size.saturating_sub(result.output_size);
+        let saved = result.saved_bytes();
 
         crate::theme::card().show(ui, |ui| {
             ui.set_width(ui.available_width());
@@ -362,10 +362,10 @@ impl PdfCompressorApp {
     fn select_output_file(&mut self) {
         let mut dialog = rfd::FileDialog::new().add_filter("PDF", &["pdf"]);
 
-        if let Some(output) = &self.output_file {
-            if let Some(file_name) = output.file_name() {
-                dialog = dialog.set_file_name(file_name.to_string_lossy());
-            }
+        if let Some(output) = &self.output_file
+            && let Some(file_name) = output.file_name()
+        {
+            dialog = dialog.set_file_name(file_name.to_string_lossy());
         }
 
         if let Some(path) = dialog.save_file() {
