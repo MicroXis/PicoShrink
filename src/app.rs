@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use eframe::egui;
 use std::sync::mpsc::{self, Receiver};
 
-use crate::compression::{file_size, format_file_size, generate_output_path};
+use crate::compression::{file_size, format_file_size, generate_output_path, is_pdf};
 use crate::ghostscript::Ghostscript;
 use crate::models::{CompressionLevel, CompressionResult, CompressionStatus};
 
@@ -354,6 +354,11 @@ impl PdfCompressorApp {
             .add_filter("PDF", &["pdf"])
             .pick_file()
         {
+            if !is_pdf(&path) {
+                self.compression_status =
+                    CompressionStatus::Error("Le fichier sélectionné n'est pas un PDF.".into());
+                return;
+            }
             self.output_file = Some(generate_output_path(&path));
             self.input_file = Some(path);
             self.compression_status = CompressionStatus::Idle;
